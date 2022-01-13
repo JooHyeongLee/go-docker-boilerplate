@@ -6,7 +6,7 @@
     "charset": "utf8mb4",
     "database": "mydb",
     "username": "root",
-    "password": "",
+    "password": " ",
     "host": "localhost",
     "port": "3306",
     "dialect": "mysql",
