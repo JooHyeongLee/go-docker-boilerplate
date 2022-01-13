@@ -7,9 +7,21 @@ import (
 )
 
 func main() {
+	ch := make(chan bool, 1)
+	go initEnv(ch)
+
+	// 모든 설정이 완료되었을 때 메인 시작
+	select {
+	case <-ch:
+		log.Info("메인 시작")
+	}
+}
+
+func initEnv(ch chan bool) {
 	// config init
 	config.LoadConfigration()
 	// logger init
 	utils.InitLogger()
-	log.Info("Main Func")
+
+	ch <- true
 }
